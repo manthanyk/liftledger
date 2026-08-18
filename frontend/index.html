@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="LiftLedger keeps your workout weights and reps ready for the next session." />
+    <title>LiftLedger — Remember your last set</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="hero">
+        <div class="brand-mark" aria-hidden="true">L</div>
+        <div>
+          <p class="eyebrow">PERSONAL TRAINING MEMORY</p>
+          <h1>LiftLedger</h1>
+          <p class="subtitle">Stop guessing where you left off.</p>
+        </div>
+        <div class="status-pill" id="api-status" aria-live="polite"><span class="status-dot"></span> Connecting…</div>
+      </header>
+
+      <section class="intro-grid">
+        <div>
+          <p class="eyebrow accent">THE FRICTION</p>
+          <h2>Your last session should be a starting point, not a question mark.</h2>
+        </div>
+        <p class="intro-copy">Log each set once, then return to a clear record of the exercise, load, reps, and date you actually completed. A small memory aid for more consistent training.</p>
+      </section>
+
+      <section class="workspace" aria-label="Workout set tracker">
+        <form id="set-form" class="card form-card">
+          <div class="card-heading">
+            <div>
+              <p class="eyebrow">NEW ENTRY</p>
+              <h2 id="form-title">Log a workout set</h2>
+            </div>
+            <span class="step-number">01</span>
+          </div>
+
+          <input type="hidden" id="set-id" />
+          <label>
+            Exercise
+            <input id="exercise" name="exercise" type="text" placeholder="e.g. Barbell squat" maxlength="80" required />
+          </label>
+          <div class="two-col">
+            <label>
+              Weight <span class="unit">kg</span>
+              <input id="weight" name="weight" type="number" min="0" step="0.5" placeholder="60" required />
+            </label>
+            <label>
+              Reps
+              <input id="reps" name="reps" type="number" min="1" step="1" placeholder="8" required />
+            </label>
+          </div>
+          <label>
+            Date
+            <input id="logged-at" name="loggedAt" type="date" required />
+          </label>
+          <label>
+            Note <span class="optional">optional</span>
+            <textarea id="notes" name="notes" rows="3" maxlength="180" placeholder="How did the set feel?"></textarea>
+          </label>
+          <div class="form-actions">
+            <button class="button primary" type="submit" id="submit-button">Save set <span aria-hidden="true">↗</span></button>
+            <button class="button ghost hidden" type="button" id="cancel-button">Cancel edit</button>
+          </div>
+          <p class="form-message" id="form-message" aria-live="polite"></p>
+        </form>
+
+        <div class="card history-card">
+          <div class="card-heading history-heading">
+            <div>
+              <p class="eyebrow">YOUR RECORD</p>
+              <h2>Recent sets</h2>
+            </div>
+            <span class="count-badge" id="set-count">0 sets</span>
+          </div>
+          <div id="loading-state" class="state-panel"><div class="spinner"></div><p>Loading your training history…</p></div>
+          <div id="error-state" class="state-panel hidden"><p class="state-title">Could not reach your ledger.</p><p id="error-copy">Check the API URL and try again.</p><button class="button ghost" id="retry-button" type="button">Try again</button></div>
+          <div id="empty-state" class="state-panel hidden"><p class="state-title">No sets yet.</p><p>Your next strong session starts with one honest entry.</p></div>
+          <div class="table-wrap hidden" id="table-wrap">
+            <table>
+              <thead>
+                <tr><th>Exercise</th><th>Load</th><th>Reps</th><th>Date</th><th><span class="sr-only">Actions</span></th></tr>
+              </thead>
+              <tbody id="sets-body"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        <p>Built around one simple promise: <strong>remember the work you already did.</strong></p>
+        <p class="mono">CRUD / SQLITE / EXPRESS</p>
+      </footer>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>
