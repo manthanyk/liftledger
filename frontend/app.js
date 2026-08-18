@@ -1,4 +1,4 @@
-const BACKEND_URL = window.BACKEND_URL || 'http://localhost:3000';
+const BACKEND_URL = window.BACKEND_URL || 'https://3000-iayqsb01l2pkfhqmfh7ow-956dc7ec.us3.manus.computer';
 
 const form = document.querySelector('#set-form');
 const setIdInput = document.querySelector('#set-id');

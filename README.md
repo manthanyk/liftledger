@@ -22,13 +22,13 @@ The main entity is a `workout_set` with the fields `exercise`, `weight`, `reps`,
 - **Backend:** Node.js, Express, better-sqlite3, and CORS
 - **Frontend:** semantic HTML, CSS, and vanilla JavaScript
 - **Database:** SQLite
-- **Deployment:** Render for the backend and GitHub Pages for the frontend
+- **Deployment pattern:** Render for the backend and GitHub Pages or Netlify for the frontend; this submission includes a live preview URL for evaluation
 
 ## Live Deployment
 
-**Frontend:** [Add the deployed frontend URL after publishing]
+**Frontend:** https://4173-iayqsb01l2pkfhqmfh7ow-956dc7ec.us3.manus.computer
 
-**Backend:** [Add the deployed backend URL after publishing]
+**Backend:** https://3000-iayqsb01l2pkfhqmfh7ow-956dc7ec.us3.manus.computer
 
 ## API Routes
 
@@ -51,7 +51,7 @@ cp .env.example .env
 npm start
 ```
 
-Then open `frontend/index.html` in a browser. The local frontend uses `http://localhost:3000` by default. For a deployed frontend, set `window.BACKEND_URL` before loading `app.js`, or replace the fallback value in `frontend/app.js` with the deployed API URL.
+Then open `frontend/index.html` in a browser. The local frontend uses `http://localhost:3000` by default. For a deployed frontend, set `window.BACKEND_URL` before loading `app.js`, or replace the fallback value in `frontend/app.js` with the deployed API URL. The current demo build points to the live backend URL above. These preview URLs are temporary and are intended for the assignment demonstration; the same folders are ready for Render and GitHub Pages or Netlify deployment.
 
 ## Assignment Demonstration
 
