@@ -1,0 +1,14 @@
+node_modules/
+.env
+*.db
+*.db-shm
+*.db-wal
+.DS_Store
+
+# Local recordings and generated artifacts
+*.mp4
+*.webm
+
+# Editor files
+.vscode/
+.idea/
